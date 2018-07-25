@@ -1,0 +1,22 @@
+{
+  "name": "derg-hugbot",
+  "version": "1.0.0",
+  "description": "Discord bot for derg hugz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayrayb/derg-hugbot.git"
+  },
+  "author": "Tayray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tayrayb/derg-hugbot/issues"
+  },
+  "homepage": "https://github.com/tayrayb/derg-hugbot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
