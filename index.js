@@ -6,6 +6,9 @@ const http = require('http');
 const token = process.env.DISCORDAPI;
 var prefix = process.env.PREFIX;
 
+console.log(prefix);
+console.log(token);
+
 bot.on('ready', () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity('Hugz');
