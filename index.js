@@ -8,6 +8,7 @@ var prefix = process.env.PREFIX;
 
 console.log(prefix);
 console.log(token);
+console.log(process.env.PORT);
 
 bot.on('ready', () => {
   console.log(`${bot.user.username} is online!`);
