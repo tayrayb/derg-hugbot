@@ -34,3 +34,4 @@ bot.login(token);
 // Heroku shutdown workaround
 const server = http.createServer();
 server.listen(process.env.PORT || 5000);
+document.write('Hug Bot!');
