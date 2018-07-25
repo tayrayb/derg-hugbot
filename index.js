@@ -1,10 +1,13 @@
+if (!haveVars) {
+  return;
+}
 // Imports
 const Discord = require('discord.js');
-const conf = require('./config.js');
 const bot = new Discord.Client();
+const http = require('http');
 // Vars
-const token = conf.discordAPI;
-var prefix = conf.prefix;
+const token = process.env.DISCORDAPI;
+var prefix = process.env.PREFIX;
 
 bot.on('ready', () => {
   console.log(`${bot.user.username} is online!`);
@@ -26,3 +29,21 @@ bot.on('message', message => {
   }
 });
 bot.login(token);
+
+// Heroku shutdown workaround
+const server = http.createServer;
+server.listen(process.env.PORT || 5000);
+// Make sure we have ENV
+function haveVars () {
+  var valid = true;
+
+  if (!process.env.DISCORD_KEY) {
+    console.log('Please provide a Discord API Token "DISCORD_KEY" in environment variables ');
+    valid = false;
+  }
+  if (!prefix.env.PREFIX) {
+    console.log('Please provide a specific prefix "PREFIX" in environment variables ');
+    valid = false;
+  }
+  return valid;
+}
