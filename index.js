@@ -28,5 +28,5 @@ bot.on('message', message => {
 bot.login(token);
 
 // Heroku shutdown workaround
-const server = http.createServer;
+const server = http.createServer();
 server.listen(process.env.PORT || 5000);
