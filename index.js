@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const http = require('http');
 // Vars
-const token = process.env.DISCORDAPI;
+const token = process.env.DISCORD_KEY;
 var prefix = process.env.PREFIX;
 
 console.log(prefix);
