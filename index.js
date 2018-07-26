@@ -1,7 +1,7 @@
 // Imports
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const http = require('http');
+const app = require('express');
 // Vars
 const token = process.env.DISCORD_KEY;
 var prefix = process.env.PREFIX;
@@ -32,6 +32,9 @@ bot.on('message', message => {
 bot.login(token);
 
 // Heroku shutdown workaround
-const server = http.createServer();
-server.listen(process.env.PORT || 5000);
-document.write('Hug Bot!');
+app.get('/', (req, res, next) => {
+  return res.send('Hug Bot');
+});
+app.listen(process.env.PORT, () => {
+  console.log('Now listening!');
+});
