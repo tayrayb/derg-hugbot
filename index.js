@@ -42,4 +42,5 @@ app.listen(process.env.PORT, () => {
 // Bot to ping itself to preven sleeping
 setInterval(function () {
   app.get('http://hug-bot.herokuapp.com');
+  console.log('Pinged website!');
 }, 300000);
