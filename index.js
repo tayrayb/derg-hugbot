@@ -33,9 +33,13 @@ bot.on('message', message => {
 bot.login(token);
 
 // Heroku shutdown workaround
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   return res.send('Hug Bot');
 });
 app.listen(process.env.PORT, () => {
   console.log('Now listening!');
 });
+// Bot to ping itself to preven sleeping
+setInterval(function () {
+  app.get('http://hug-bot.herokuapp.com');
+}, 300000);
