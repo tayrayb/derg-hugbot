@@ -1,7 +1,8 @@
 // Imports
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const app = require('express');
+const express = require('express');
+const app = express();
 // Vars
 const token = process.env.DISCORD_KEY;
 var prefix = process.env.PREFIX;
