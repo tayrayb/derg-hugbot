@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 const express = require('express');
 const app = express();
+const expressmonitor = require('express-status-monitor')({ path: '' });
 // Vars
 const token = process.env.DISCORD_KEY;
 var prefix = process.env.PREFIX;
@@ -33,13 +34,12 @@ bot.on('message', message => {
 bot.login(token);
 
 // Heroku shutdown workaround
-app.get('/', (req, res) => {
-  return res.send('Hug Bot');
-});
+app.use(expressmonitor.middleware);
+app.get('/', expressmonitor.pageRoute);
 app.listen(process.env.PORT, () => {
   console.log('Now listening!');
 });
-// Bot to ping itself to preven sleeping
+// Bot to ping itself to prevent sleeping
 setInterval(function () {
   app.get('http://hug-bot.herokuapp.com');
   console.log('Pinged website!');
